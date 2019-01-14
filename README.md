@@ -1,8 +1,8 @@
 ## angular-universal-with-lazyload-service
 
-### For angular universal setup one can follow the document of - https://github.com/BhadraAnirban/angular-universal
+### For angular universal setup, one can follow the document of - https://github.com/BhadraAnirban/angular-universal
 
-### Urls to play around-
+### Urls to play around (After building this solution)-
 
 http://localhost:4400/
 
