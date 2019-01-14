@@ -2,6 +2,12 @@
 
 ### For angular universal setup, one can follow the document of - https://github.com/BhadraAnirban/angular-universal
 
+### Build commands-
+
+ng run appointmentmaker:server
+
+npm run build:ssr && npm run serve:ssr
+
 ### Urls to play around (After building this solution)-
 
 http://localhost:4400/
