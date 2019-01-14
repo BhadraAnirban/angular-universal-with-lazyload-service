@@ -1,6 +1,5 @@
 ## angular-universal-with-lazyload-service
 
-### For angular universal setup, one can follow the document of - https://github.com/BhadraAnirban/angular-universal
 
 ### Build commands-
 
@@ -16,7 +15,9 @@ http://localhost:4400/static/contact – use of Lazy loading
 
 http://localhost:4400/sms-reviews?physician_id=261&key=QPvDstSUdstSxIDWGxmRacd&patient_id=1058
 
-### Module and component structure
+### For angular universal setup, one can follow the document of - https://github.com/BhadraAnirban/angular-universal
+
+### Module and component structure of this application
 
 module - AppRouting
 
