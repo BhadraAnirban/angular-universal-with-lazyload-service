@@ -1,0 +1,179 @@
+<!--p *ngIf="physician">
+  Physician: {{physician.first_name + ' ' + physician.last_name}} <br/>
+  Patient: {{patient_id}}<br/>
+  Key: {{key}}
+</p>
+
+<p *ngIf="patient">
+Hi {{patient.first_name}} {{patient.last_name}}!!!!!!
+</p-->
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        
+        <style>
+            .new-header {
+              background-color: white;
+              box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.081);
+              min-height: 54px;
+              padding-top: 10px;
+              padding-bottom: 10px;
+            }
+            .new-header img {
+              max-width: 185px;
+            }
+            .rating-area {
+              margin-top: 25px;
+              padding-top: 15px;
+              padding-bottom: 15px;
+              box-shadow: 0px 0px 26px 4px rgba(0, 0, 0, 0.081);
+              border-radius: 6px;
+            }
+            .rating-area .top-gap {
+              padding-top: 2em;
+            }
+            .rating-area .padding-up {
+              padding-top: 15px;
+            }
+            .rating-area .padding-bottom {
+              padding-bottom: 15px;
+            }
+            .rating-area .doc-img-area {
+              display: inline-block;
+              position: relative;
+              box-shadow: 0px 0px 20px 4px rgba(134, 134, 134, 0.4);
+              border: 1px solid #cacaca;
+            }
+            .rating-area .fa-check {
+              position: absolute;
+              background-color: #d3145a;
+              color: #fff;
+              border-radius: 50%;
+              padding: 5px;
+              margin-left: -10px;
+              margin-top: -10px;
+            }
+            .rating-area img {
+              max-width: 150px;
+              max-height: 150px;
+            }
+            .rating-area .rating {
+              position: absolute;
+              left: 12px;
+              width: 85%;
+              background: #fff;
+              border: 1px solid #ddd;
+              margin-bottom: -12px;
+              bottom: 0;
+            }
+            .rating-area .fa-star-half-alt {
+              color:#d3145a;
+            }
+            .rating-area .color {
+              color:#d3145a;
+            }
+            .rating-area button {
+              border-radius: 4px;
+              border: 0;
+              margin-top: 13px;
+              color: #fff;
+              padding: 2px 15px 2px 15px;
+              font-weight: 600;
+              background-color: #bfbfbf;
+            }
+            .rating-area button:active {
+              outline: none;
+              border: none;
+            }
+            .rating-area button.disabled {
+              background-color: #cacaca;
+              color: #f1f1f1;
+            }
+            .rating-area button.active {
+              background-color: #d3145a;
+              cursor: pointer;
+            }
+            .rating-area .rating-face h4 {
+              font-weight: 300;
+              padding-bottom: 1em;
+            }
+            .rating-area .rating-face span {
+              padding:0 15px 0 15px;
+              display: inline-block;
+            }
+            .rating-area .rating-face i {
+              /*font-size:5em;*/
+              font-size: 4vw;
+              cursor: pointer;
+            }
+            .rating-area .google-button button {
+              background-color: #673090;
+              padding-top: 5px;
+              padding-bottom: 5px;
+            }
+            .rating-area .google-button button img {
+              height: 20px;
+            }
+            @media screen and (max-width: 767.98px) {
+                .new-header {
+                  text-align: center;
+                }
+                .rating-area .rating-face span {
+                  padding:0 5px 0 5px;
+                }
+                .rating-area .rating-face i {
+                  font-size: 12vw;
+                }
+            }
+        </style>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 new-header">
+                    <a href="https://careclues.com/"><img src="https://careclues.com/assets/img/logo-color.svg" alt="CareClues" class="img-responsive" /></a>
+                </div>
+            </div>
+        </div>
+        <div class="container rating-area" *ngIf="loaded">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center top-gap padding-bottom">
+                    <div class="doc-img-area">
+                        <span class="fas fa-check"></span>
+                        <img src="{{physician.profile_photo}}" alt="CareClues" class="img-responsive" />
+                        <span class="rating">                            
+                            <i class="fas fa-star" [ngClass]="{'color' : physician.rating >= 1,'fa-star-half-alt' : physician.rating > 0 && physician.rating < 1}"></i>
+                            <i class="fas fa-star" [ngClass]="{'color' : physician.rating >= 2,'fa-star-half-alt' : physician.rating > 1 && physician.rating < 2}"></i>
+                            <i class="fas fa-star" [ngClass]="{'color' : physician.rating >= 3,'fa-star-half-alt' : physician.rating > 2 && physician.rating < 3}"></i>
+                            <i class="fas fa-star" [ngClass]="{'color' : physician.rating >= 4,'fa-star-half-alt' : physician.rating > 3 && physician.rating < 4}"></i>
+                            <i class="fas fa-star" [ngClass]="{'color' : physician.rating >= 5 ,'fa-star-half-alt' : physician.rating > 4 && physician.rating < 5}"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center top-gap padding-bottom">
+                    <div class="color font-weight-bold">{{physician.prefix | titlecase}}{{physician.prefix ? '. ' : ''}}{{physician.first_name | titlecase}}&nbsp;{{physician.last_name | titlecase}}</div>
+                    <div><span *ngFor="let speciality of physician.specializationsList; let isLast=last">{{speciality}}{{isLast ? '' : ', '}}</span></div>
+                    <div *ngIf="physician.years_of_experience">Experience: {{physician.years_of_experience}}yrs</div>
+                    <button class="active">View Doctor Profile</button>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center top-gap padding-bottom rating-face">
+                    <h4>How Likely are you to recommend the doctor to others?</h4>
+                    <span (click)="selectedReview(1)"><i class="far fa-angry" [ngClass]="{'color' : selectedValue == 1}"></i></span>
+                    <span (click)="selectedReview(2)"><i class="far fa-frown" [ngClass]="{'color' : selectedValue == 2}"></i></span>
+                    <span (click)="selectedReview(3)"><i class="far fa-meh" [ngClass]="{'color' : selectedValue == 3}"></i></span>
+                    <span (click)="selectedReview(4)"><i class="far fa-smile" [ngClass]="{'color' : selectedValue == 4}"></i></span>
+                    <span (click)="selectedReview(5)"><i class="far fa-laugh" [ngClass]="{'color' : selectedValue == 5}"></i></span>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center top-gap padding-bottom">
+                    <button [disabled]="selectedValue == 0" (click)="submitReview()" [ngClass]="{'disabled' : selectedValue == 0 || reviewSubmitted}">Submit</button>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 text-center top-gap padding-bottom google-button" *ngIf="reviewSubmitted">
+                    <h3 class="color">Thank You</h3>
+                    <p>Please review the doctor on google to help other patients</p>
+                    <a href="https://careclues.com"><button *ngIf="selectedValue > 3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" alt="CareClues" />
+                        <span>Review doctor</span>
+                    </button></a>
+                </div>
+            </div>
+        </div>
